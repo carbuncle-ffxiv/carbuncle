@@ -1,4 +1,4 @@
-# Privacy Policy for Carbuncle
+# Privacy Policy for Carbuncle Discord Bot
 
 This privacy policy governs the use of the Discord bot Carbuncle ("the Bot") developed by Carbuncle FFXIV ("the Developers"). This policy outlines the types of information collected, how it is used, and the choices available to users regarding the collection and use of their data.
 
