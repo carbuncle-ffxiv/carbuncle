@@ -68,6 +68,10 @@ pnpm start
 
 We welcome contributions from the community. If you have ideas for improvements or find issues, please open a pull request or submit an issue.
 
+<a href="https://github.com/carbuncle-ffxiv/carbuncle/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=carbuncle-ffxiv/carbuncle" />
+</a>
+
 ## Self-Hosting
 
 The inclusion of the bot's source code herein is primarily intended to foster transparency and facilitate other developers in incorporating similar functionalities into their respective projects.
