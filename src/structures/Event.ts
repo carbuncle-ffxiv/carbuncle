@@ -10,6 +10,7 @@ export class Event {
   constructor(id: string, event: keyof ClientEvents, once = false) {
     this.id = id;
     this.event = event;
+    this.once = once;
   }
 
   /**

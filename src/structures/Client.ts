@@ -54,7 +54,8 @@ export class Client extends DiscordClient {
 
       logger.info(`Loaded event ${event.id}`);
 
-      this.on(event.event, (...args) => event.run(...args));
+      if (event.once) this.once(event.event, (...args) => event.run(...args));
+      else this.on(event.event, (...args) => event.run(...args));
     }
   }
 
