@@ -1,16 +1,17 @@
-# Carbuncle
+# Carbuncle <img src="https://s3.glazk0.dev/carbuncle/avatar/avatar_social.png" height="40" width="40" alt="Carbuncle alt logo" />
 
 ![GitHub](https://img.shields.io/github/license/carbuncle-ffxiv/carbuncle)
 [![Discord](https://img.shields.io/discord/1170436893368909904.svg?logo=discord)](https://discord.gg/7rNFn2s2j8)
 
-A simple & user-friendly Discord bot for Final Fantasy XIV, built with [discord.js](https://discord.js.org) that provides a variety of useful features for players.
+A simple & user-friendly Discord bot for Final Fantasy XIV, built with [discord.js](https://discord.js.org) that provides a variety of useful features for players, free companies and communites alike.
 
 ## Features
 
-- Access market data from [Universalis](https://universalis.app/) to stay updated on item prices.
-- Retrieve data from [FFXIV Clock](https://www.ffxivclock.com/) for specific nodes or resources.
+- Access market data from [Universalis](https://universalis.app/) to stay up to date on item prices.
+- Retrieve data from [FFXIV Clock](https://www.ffxivclock.com/) for specific nodes and resources.
 - Fetch Lodestone data from [XIVAPI](https://xivapi.com/) about characters, free companies, and linkshells.
-- Get information about FFXIV items, quests, and achievements.
+- Aether Current infographics with data from [A Realm Remapped](https://arealmremapped.com/index.html) for quality and accuracy.
+- Get information about FFXIV items, quests, and achievements from [Console Games Wiki](https://ffxiv.consolegameswiki.com/wiki/FF14_Wiki).
 
 ## Table of Contents
 
@@ -65,7 +66,7 @@ pnpm start
 
 ## Contributing
 
-I welcome contributions from the community. If you have ideas for improvements or find issues, please open a pull request or submit an issue.
+We welcome contributions from the community. If you have ideas for improvements or find issues, please open a pull request or submit an issue.
 
 ## Self-Hosting
 
