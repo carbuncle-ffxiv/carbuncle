@@ -43,6 +43,8 @@ export class Client extends DiscordClient {
 
       this.interactions.set(interaction.command.name, interaction);
     }
+
+    Object.freeze(this.interactions);
   }
 
   private async registerEvents(): Promise<void> {
