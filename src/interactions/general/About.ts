@@ -20,7 +20,7 @@ import { clientSymbol } from '../../utils/Commons.js';
 import { AboutEmbed } from '../../embeds/AboutEmbed.js';
 
 @injectable()
-export default class Help extends Interaction {
+export default class About extends Interaction {
   public enabled = true;
 
   public category = InteractionCategory.GENERAL;
@@ -55,7 +55,6 @@ export default class Help extends Interaction {
 
     return await interaction.reply({
       embeds: [embed],
-      //   components: [helpersButtons],
     });
   }
 }
