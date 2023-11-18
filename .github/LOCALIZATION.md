@@ -19,7 +19,7 @@ To ensure consistency and quality across translations, please adhere to the foll
 
 - Maintain the original meaning and context of the English text.
 - Use proper grammar, punctuation, and language conventions specific to your target language.
-- If you encounter any terms or phrases that are specific to Diablo 4 or Discord, try to use commonly accepted translations or provide a translation explanation if needed.
+- If you encounter any terms or phrases that are specific to Final Fantasy XIV or Discord, try to use commonly accepted translations or provide a translation explanation if needed.
 - If you have any questions or need clarification on any translation aspects, feel free to open an issue in this repository to seek guidance from the project maintainers.
 
 ## Supported Languages
@@ -38,7 +38,7 @@ We greatly appreciate the efforts of all contributors who help make Carbuncle ac
 
 ## License
 
-The Carbuncle Discord Bot Project is licensed under [LICENSE], and by contributing, you agree that your contributions will be subject to the terms of this license.
+The Carbuncle Discord Bot Project is licensed under [LICENSE](LICENSE), and by contributing, you agree that your contributions will be subject to the terms of this license.
 
 We look forward to your contributions and thank you for your support in making Carbuncle accessible to users in different languages. If you have any questions or need assistance, please don't hesitate to reach out.
 
