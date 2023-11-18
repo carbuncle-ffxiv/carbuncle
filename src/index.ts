@@ -1,16 +1,14 @@
-import dotenv from 'dotenv';
+import 'dotenv/config';
 
 import { ShardingManager } from 'discord.js';
 
 import { Manager } from './structures/Manager.js';
 
-import { API } from './api/index.js';
-import { ShardController } from './api/controllers/index.js';
+import { API } from './api/API.js';
+import { ShardController } from './api/controllers/ShardController.js';
 
 import { logger } from './utils/Logger.js';
 import { getFilePath } from './utils/File.js';
-
-dotenv.config();
 
 const shardManager = new ShardingManager(getFilePath('Bot.js'), {
   token: process.env.TOKEN,
