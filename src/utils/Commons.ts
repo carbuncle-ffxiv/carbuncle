@@ -1,5 +1,12 @@
 export const clientSymbol = Symbol('client');
 
+export const developers = [
+  //glazk0
+  '247344130798256130',
+  // Fading Lotus
+  '149295692462948352',
+];
+
 export const titleCase = (string: string) => {
   return string
     .split(' ')

@@ -4,7 +4,6 @@ import { inject, injectable } from 'tsyringe';
 import { Event } from '../structures/Event.js';
 import { Client } from '../structures/Client.js';
 
-import { logger } from '../utils/Logger.js';
 import { clientSymbol } from '../utils/Commons.js';
 
 @injectable()
@@ -14,20 +13,20 @@ export default class InteractionCreate extends Event {
   }
 
   public async run(interaction: CommandInteraction<CacheType>): Promise<void> {
-    if (!this.client.isReady()) return undefined;
-    if (!interaction) return undefined;
+    if (!interaction || !this.client.isReady()) return undefined;
 
-    let command = this.client.interactions.get(interaction.commandName);
+    const command = this.client.interactions.get(interaction.commandName);
 
     if (!command) return undefined;
 
     if (interaction.isChatInputCommand()) {
       try {
         await command?.run(interaction);
+        this.client.logger.info(`Command "${command.command.name}" has been executed`);
       } catch (error) {
-        logger.error(error);
+        this.client.logger.error(error);
         await interaction.reply({
-          content: 'There was an error while executing this command!',
+          content: 'There was an error while executing this command! Please try again later.',
           ephemeral: true,
         });
       }
@@ -35,7 +34,7 @@ export default class InteractionCreate extends Event {
       try {
         await command?.autocomplete?.(interaction);
       } catch (error) {
-        logger.error(error);
+        this.client.logger.error(error);
       }
     }
   }

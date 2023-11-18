@@ -4,15 +4,12 @@ import {
   ChatInputCommandInteraction,
   InteractionResponse,
   Message,
-  RESTPostAPIChatInputApplicationCommandsJSONBody,
+  RESTPostAPIApplicationCommandsJSONBody,
 } from 'discord.js';
 
 import { injectable, inject } from 'tsyringe';
 
-import {
-  Interaction,
-  InteractionCategory,
-} from '../../structures/Interaction.js';
+import { Interaction, InteractionCategory } from '../../structures/Interaction.js';
 import { Client } from '../../structures/Client.js';
 
 import { clientSymbol } from '../../utils/Commons.js';
@@ -25,7 +22,7 @@ export default class About extends Interaction {
 
   public category = InteractionCategory.GENERAL;
 
-  public command: RESTPostAPIChatInputApplicationCommandsJSONBody = {
+  public command: RESTPostAPIApplicationCommandsJSONBody = {
     type: ApplicationCommandType.ChatInput,
     name: 'about',
     description: 'Displays information about Carbuncle',
@@ -36,22 +33,21 @@ export default class About extends Interaction {
   }
 
   public async run(
-    interaction: ChatInputCommandInteraction<CacheType>,
+    interaction: ChatInputCommandInteraction<CacheType>
   ): Promise<InteractionResponse<boolean> | Message<boolean>> {
-    const guilds = await this.client.shard?.broadcastEval(
-      (client) => client.guilds.cache.size,
-    );
-    const users = await this.client.shard?.broadcastEval((client) =>
+    const data = await this.client.shard?.broadcastEval((client) => [
+      client.guilds.cache.size,
       client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0),
-    );
+      client.ws.shards.first()?.id,
+    ]);
 
-    const data = {
-      guilds: guilds?.reduce((acc, guildCount) => acc + guildCount, 0),
-      users: users?.reduce((acc, memberCount) => acc + memberCount, 0),
-      shardId: interaction.guild?.shardId || 0,
+    const payload = {
+      servers: data?.[0]?.[0],
+      users: data?.[0]?.[1],
+      shardId: data?.[0]?.[2],
     };
 
-    const embed = new AboutEmbed(data);
+    const embed = new AboutEmbed(payload);
 
     return await interaction.reply({
       embeds: [embed],

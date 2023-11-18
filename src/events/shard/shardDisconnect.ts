@@ -5,7 +5,6 @@ import { Event } from '../../structures/Event.js';
 import { Client } from '../../structures/Client.js';
 
 import { clientSymbol } from '../../utils/Commons.js';
-import { logger } from '../../utils/Logger.js';
 
 @injectable()
 export default class ShardDisconnect extends Event {
@@ -14,6 +13,6 @@ export default class ShardDisconnect extends Event {
   }
 
   public async run(event: CloseEvent, id: number): Promise<void> {
-    logger.warn(`[Shard #${id}] Code ${event.code}, ${event.reason}`);
+    this.client.logger.warn(`[Shard #${id}] Code ${event.code}, ${event.reason}`);
   }
 }

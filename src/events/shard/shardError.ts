@@ -5,7 +5,6 @@ import { Event } from '../../structures/Event.js';
 import { Client } from '../../structures/Client.js';
 
 import { clientSymbol } from '../../utils/Commons.js';
-import { logger } from '../../utils/Logger.js';
 
 @injectable()
 export default class ShardError extends Event {
@@ -14,6 +13,6 @@ export default class ShardError extends Event {
   }
 
   public async run(error: Error, id: number): Promise<void> {
-    logger.warn(`[Shard #${id}] ${error.stack}`);
+    this.client.logger.warn(`[Shard #${id}] ${error.stack}`);
   }
 }

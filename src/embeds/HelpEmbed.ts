@@ -13,7 +13,7 @@ export class HelpEmbed extends BaseEmbed {
     command?: ApplicationCommand<{
       guild: GuildResolvable | null;
     }>,
-    commands?: Collection<string, Interaction>,
+    commands?: Collection<string, Interaction>
   ) {
     super();
 
@@ -31,12 +31,10 @@ export class HelpEmbed extends BaseEmbed {
         command.options?.map((option) => ({
           name: option.name,
           value: option.description,
-        })),
+        }))
       );
     } else if (commands) {
-      const categories = [
-        ...new Set(commands.map((command) => command.category)),
-      ];
+      const categories = [...new Set(commands.map((command) => command.category))];
 
       this.data.author = {
         name: L.en.embeds.help.author({
@@ -48,14 +46,10 @@ export class HelpEmbed extends BaseEmbed {
       this.data.description = L.en.embeds.help.description();
 
       for (const category of categories) {
-        const commandsInCategory = commands.filter(
-          (command) => command.category === category,
-        );
+        const commandsInCategory = commands.filter((command) => command.category === category);
         this.addFields({
           name: category,
-          value: commandsInCategory
-            .map((command) => `\`${command.command.name}\``)
-            .join(', '),
+          value: commandsInCategory.map((command) => `\`${command.command.name}\``).join(', '),
         });
       }
     }

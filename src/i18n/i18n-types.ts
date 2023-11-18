@@ -16,13 +16,7 @@ export type Translations = RootTranslation &
 	embeds: NamespaceEmbedsTranslation
 }
 
-type RootTranslation = {
-	/**
-	 * H​i​ ​{​n​a​m​e​}​!​ ​P​l​e​a​s​e​ ​l​e​a​v​e​ ​a​ ​s​t​a​r​ ​i​f​ ​y​o​u​ ​l​i​k​e​ ​t​h​i​s​ ​p​r​o​j​e​c​t​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​i​v​a​n​h​o​f​e​r​/​t​y​p​e​s​a​f​e​-​i​1​8​n
-	 * @param {string} name
-	 */
-	HI: RequiredParams<'name'>
-}
+type RootTranslation = {}
 
 export type NamespaceCommandsTranslation = {
 	help: {
@@ -36,10 +30,11 @@ export type NamespaceCommandsTranslation = {
 export type NamespaceEmbedsTranslation = {
 	about: {
 		/**
-		 * *​*​{​u​s​e​r​n​a​m​e​}​*​*​ ​i​s​ ​a​ ​D​i​s​c​o​r​d​ ​b​o​t​ ​w​r​i​t​t​e​n​ ​i​n​ ​T​y​p​e​S​c​r​i​p​t​ ​u​s​i​n​g​ ​t​h​e​ ​[​d​i​s​c​o​r​d​.​j​s​]​(​h​t​t​p​s​:​/​/​d​i​s​c​o​r​d​.​j​s​.​o​r​g​)​ ​l​i​b​r​a​r​y​,​ ​c​r​e​a​t​e​d​ ​b​y​ ​g​l​a​z​k​0​ ​&​ ​g​r​i​z​z​l​e​m​e​t​h​i​s​.
+		 * *​*​{​u​s​e​r​n​a​m​e​}​*​*​ ​i​s​ ​a​ ​D​i​s​c​o​r​d​ ​b​o​t​ ​w​r​i​t​t​e​n​ ​i​n​ ​T​y​p​e​S​c​r​i​p​t​ ​u​s​i​n​g​ ​t​h​e​ ​[​d​i​s​c​o​r​d​.​j​s​]​(​h​t​t​p​s​:​/​/​d​i​s​c​o​r​d​.​j​s​.​o​r​g​)​ ​l​i​b​r​a​r​y​,​ ​c​r​e​a​t​e​d​ ​b​y​ ​{​d​e​v​e​l​o​p​e​r​s​}​.
+		 * @param {unknown} developers
 		 * @param {string} username
 		 */
-		description: RequiredParams<'username'>
+		description: RequiredParams<'developers' | 'username'>
 		statistics: {
 			/**
 			 * S​t​a​t​i​s​t​i​c​s
@@ -102,10 +97,6 @@ type DisallowNamespaces = {
 }
 
 export type TranslationFunctions = {
-	/**
-	 * Hi {name}! Please leave a star if you like this project: https://github.com/ivanhofer/typesafe-i18n
-	 */
-	HI: (arg: { name: string }) => LocalizedString
 	commands: {
 		help: {
 			/**
@@ -117,9 +108,9 @@ export type TranslationFunctions = {
 	embeds: {
 		about: {
 			/**
-			 * **{username}** is a Discord bot written in TypeScript using the [discord.js](https://discord.js.org) library, created by glazk0 & grizzlemethis.
+			 * **{username}** is a Discord bot written in TypeScript using the [discord.js](https://discord.js.org) library, created by {developers}.
 			 */
-			description: (arg: { username: string }) => LocalizedString
+			description: (arg: { developers: unknown, username: string }) => LocalizedString
 			statistics: {
 				/**
 				 * Statistics

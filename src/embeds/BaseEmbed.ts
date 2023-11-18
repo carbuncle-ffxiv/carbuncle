@@ -16,8 +16,8 @@ export class BaseEmbed extends EmbedBuilder {
     this.data.color = 0xc15149;
   }
 
-  public addField(name: string, value: string, inline = false): this {
-    return super.addFields({
+  public addField(name: string, value: string, inline = false): void {
+    super.addFields({
       name,
       value,
       inline,

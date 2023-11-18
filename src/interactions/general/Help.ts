@@ -6,15 +6,12 @@ import {
   ChatInputCommandInteraction,
   InteractionResponse,
   Message,
-  RESTPostAPIChatInputApplicationCommandsJSONBody,
+  RESTPostAPIApplicationCommandsJSONBody,
 } from 'discord.js';
 
 import { injectable, inject } from 'tsyringe';
 
-import {
-  Interaction,
-  InteractionCategory,
-} from '../../structures/Interaction.js';
+import { Interaction, InteractionCategory } from '../../structures/Interaction.js';
 import { Client } from '../../structures/Client.js';
 
 import { clientSymbol } from '../../utils/Commons.js';
@@ -29,7 +26,7 @@ export default class Help extends Interaction {
 
   public category = InteractionCategory.GENERAL;
 
-  public command: RESTPostAPIChatInputApplicationCommandsJSONBody = {
+  public command: RESTPostAPIApplicationCommandsJSONBody = {
     type: ApplicationCommandType.ChatInput,
     name: 'help',
     description: 'Shows the help menu',
@@ -49,7 +46,7 @@ export default class Help extends Interaction {
   }
 
   public async run(
-    interaction: ChatInputCommandInteraction<CacheType>,
+    interaction: ChatInputCommandInteraction<CacheType>
   ): Promise<InteractionResponse<boolean> | Message<boolean>> {
     const command = interaction.options.getString('command')?.toLowerCase();
 
@@ -74,9 +71,7 @@ export default class Help extends Interaction {
     });
   }
 
-  public async autocomplete(
-    interaction: AutocompleteInteraction<CacheType>,
-  ): Promise<void> {
+  public async autocomplete(interaction: AutocompleteInteraction<CacheType>): Promise<void> {
     const command = interaction.options.getString('command');
 
     let interactions = this.client.interactions;
@@ -88,14 +83,12 @@ export default class Help extends Interaction {
             name: interaction.command.name,
             value: interaction.command.name,
           };
-        }),
+        })
       );
 
     const regex = new RegExp(`^${command}`, 'i');
 
-    interactions = interactions.filter((interaction) =>
-      regex.test(interaction.command.name),
-    );
+    interactions = interactions.filter((interaction) => regex.test(interaction.command.name));
 
     return interaction.respond(
       interactions.map((interaction) => {
@@ -103,7 +96,7 @@ export default class Help extends Interaction {
           name: interaction.command.name,
           value: interaction.command.name,
         };
-      }),
+      })
     );
   }
 }

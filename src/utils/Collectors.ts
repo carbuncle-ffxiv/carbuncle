@@ -32,22 +32,13 @@ export class Collectors {
         emoji: Emojis | string;
         label: string;
       };
-    },
+    }
   ) {
-    return pages.length < 26
-      ? this.selection(interaction, pages, options)
-      : this.navigation(interaction, pages, options);
+    return pages.length < 26 ? this.selection(interaction, pages) : this.navigation(interaction, pages, options);
   }
   public static async selection(
     interaction: ChatInputCommandInteraction<CacheType>,
-    pages: BaseEmbed[],
-    options?: {
-      source?: {
-        url: string;
-        emoji: Emojis | string;
-        label: string;
-      };
-    },
+    pages: BaseEmbed[]
   ): Promise<InteractionResponse<boolean> | Message<boolean>> {
     if (pages.length === 1)
       return interaction.reply({
@@ -145,7 +136,7 @@ export class Collectors {
         emoji: Emojis | string;
         label: string;
       };
-    },
+    }
   ): Promise<InteractionResponse<boolean> | Message<boolean>> {
     if (!interaction.deferred) await interaction.deferReply();
 
@@ -180,7 +171,7 @@ export class Collectors {
                   emoji: Emojis.Carbuncle,
                   style: ButtonStyle.Secondary,
                   disabled: true,
-                },
+                }
           ),
           new ButtonBuilder({
             customId: 'next',

@@ -5,7 +5,6 @@ import { Event } from '../../structures/Event.js';
 import { Client } from '../../structures/Client.js';
 
 import { clientSymbol } from '../../utils/Commons.js';
-import { logger } from '../../utils/Logger.js';
 
 @injectable()
 export default class ShardReady extends Event {
@@ -14,6 +13,6 @@ export default class ShardReady extends Event {
   }
 
   public async run(id: number): Promise<void> {
-    logger.info(`Shard #${id} ready!`);
+    this.client.logger.info(`Shard #${id} ready!`);
   }
 }

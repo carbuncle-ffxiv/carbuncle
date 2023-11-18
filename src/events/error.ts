@@ -4,7 +4,6 @@ import { inject, injectable } from 'tsyringe';
 import { Event } from '../structures/Event.js';
 import { Client } from '../structures/Client.js';
 
-import { logger } from '../utils/Logger.js';
 import { clientSymbol } from '../utils/Commons.js';
 
 @injectable()
@@ -14,6 +13,6 @@ export default class Error extends Event {
   }
 
   public async run(error: Error): Promise<void> {
-    logger.error(error);
+    this.client.logger.error(error);
   }
 }

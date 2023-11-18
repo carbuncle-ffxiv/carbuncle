@@ -21,8 +21,6 @@ export class Manager {
   }
 
   private registerEvents(): void {
-    this.manager.on('shardCreate', (shard) => {
-      logger.info(`Launched shard #${shard.id}`);
-    });
+    this.manager.on('shardCreate', (shard) => logger.info(`Launching shard #${shard.id}`));
   }
 }

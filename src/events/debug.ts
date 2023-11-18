@@ -4,7 +4,6 @@ import { inject, injectable } from 'tsyringe';
 import { Event } from '../structures/Event.js';
 import { Client } from '../structures/Client.js';
 
-import { logger } from '../utils/Logger.js';
 import { clientSymbol } from '../utils/Commons.js';
 
 @injectable()
@@ -14,6 +13,6 @@ export default class Warn extends Event {
   }
 
   public async run(message: string): Promise<void> {
-    if (!message.match(/heartbeat/gi)) logger.debug(message);
+    if (!message.match(/heartbeat/gi)) this.client.logger.debug(message);
   }
 }

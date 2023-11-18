@@ -3,7 +3,7 @@ import type { BaseTranslation } from '../../i18n-types.js';
 const en_embeds = {
   about: {
     description:
-      '**{username:string}** is a Discord bot written in TypeScript using the [discord.js](https://discord.js.org) library, created by glazk0 & grizzlemethis.',
+      '**{username:string}** is a Discord bot written in TypeScript using the [discord.js](https://discord.js.org) library, created by {developers}.',
     statistics: {
       title: 'Statistics',
       value: 'Servers: {servers:string}\nUsers: {users:string}',
