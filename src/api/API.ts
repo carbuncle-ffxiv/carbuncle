@@ -3,6 +3,7 @@ import express, { Express } from 'express';
 import { logger } from '../utils/Logger.js';
 
 import { Controller } from './controllers/Controller.js';
+import { checkAuth } from './middleware/Auth.js';
 
 export class API {
   private app: Express;
@@ -36,9 +37,7 @@ export class API {
    */
   private registerControllers(): void {
     for (const controller of this.controllers) {
-      //   if (controller.authToken) {
-      //     controller.router.use(checkAuth(process.env.AUTH_TOKEN));
-      //   }
+      if (controller.secure) controller.router.use(checkAuth());
       controller.register();
       this.app.use(controller.path, controller.router);
     }

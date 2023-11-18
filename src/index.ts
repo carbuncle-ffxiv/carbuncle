@@ -6,6 +6,7 @@ import { Manager } from './structures/Manager.js';
 
 import { API } from './api/API.js';
 import { ShardController } from './api/controllers/ShardController.js';
+import { RootController } from './api/controllers/RootController.js';
 
 import { logger } from './utils/Logger.js';
 import { getFilePath } from './utils/File.js';
@@ -18,9 +19,10 @@ const shardManager = new ShardingManager(getFilePath('Bot.js'), {
 
 const manager = new Manager(shardManager);
 
+const rootController = new RootController();
 const shardController = new ShardController(shardManager);
 
-const api = new API([shardController]);
+const api = new API([rootController, shardController]);
 
 (async () => {
   try {
@@ -32,6 +34,7 @@ const api = new API([shardController]);
 })();
 
 process.on('SIGINT', () => {
+  logger.info('Stopping the manager...');
   manager.shutdown();
   process.exit(0);
 });

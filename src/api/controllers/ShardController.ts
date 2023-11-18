@@ -8,7 +8,7 @@ export class ShardController implements Controller {
 
   public router = Router();
 
-  public authToken = process.env.AUTH_TOKEN;
+  public secure = true;
 
   private manager: ShardingManager;
 
