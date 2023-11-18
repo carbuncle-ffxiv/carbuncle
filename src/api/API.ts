@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 
 import { logger } from '../utils/Logger.js';
 
-import { Controller } from './controllers/index.js';
+import { Controller } from './controllers/Controller.js';
 
 export class API {
   private app: Express;

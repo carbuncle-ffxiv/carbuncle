@@ -6,5 +6,3 @@ export interface Controller {
   authToken?: string;
   register: () => void;
 }
-
-export * from './ShardController.js';

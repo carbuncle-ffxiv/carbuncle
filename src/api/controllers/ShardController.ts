@@ -1,7 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { ShardingManager } from 'discord.js';
 
-import { Controller } from './index.js';
+import { Controller } from './Controller.js';
 
 export class ShardController implements Controller {
   public path = '/shards';
