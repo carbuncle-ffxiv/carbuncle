@@ -38,7 +38,7 @@ We greatly appreciate the efforts of all contributors who help make Carbuncle ac
 
 ## License
 
-The Carbuncle Discord Bot Project is licensed under [LICENSE](LICENSE), and by contributing, you agree that your contributions will be subject to the terms of this license.
+The Carbuncle Discord Bot Project is licensed under [LICENSE](../LICENSE), and by contributing, you agree that your contributions will be subject to the terms of this license.
 
 We look forward to your contributions and thank you for your support in making Carbuncle accessible to users in different languages. If you have any questions or need assistance, please don't hesitate to reach out.
 
