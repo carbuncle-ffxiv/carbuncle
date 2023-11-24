@@ -30,7 +30,7 @@ The collected information is used for the following purposes:
 
 ## Data Storage and Security
 
-The collected data is stored securely and is accessible only to the Developers. The Developers undertakes reasonable efforts to protect user data from unauthorized access, disclosure, alteration, and destruction.
+The collected data is stored securely and is accessible only by the Developers. Data collected is stored for a maximum of up to 30 days. This coincides with Discords privacy and security policies. The Developers of Carbuncle undertake reasonable efforts to protect user data from unauthorized access, disclosure, alteration, and destruction.
 
 ## Data Sharing
 
